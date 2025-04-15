@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface RemoteConfigRepository extends MongoRepository<RemoteConfig, String> {
 
-    Optional<RemoteConfig> findTopByEnvOrderByCreatedAtDesc(String env);
+    Optional<RemoteConfig> findTopByAppIdAndEnvOrderByCreationDateDesc(String appId, String env);
 
-    Optional<RemoteConfig> findByEnvAndVersion(String env, String version);
+    Optional<RemoteConfig> findByAppIdAndEnvAndVersion(String appId, String env, String version);
 }
